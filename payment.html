@@ -1,0 +1,109 @@
+{% extends 'main/main.html' %}
+
+{% block style %}
+<style>
+ 
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f7f7f7;
+        margin: 0;
+        padding: 0;
+    }
+
+    .payment-container {
+        width: 100%;
+        max-width: 500px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        font-size: 2em;
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px;
+    }
+
+    .car-info {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 1.1em;
+        color: #555;
+    }
+
+    .car-info p {
+        margin: 5px 0;
+    }
+
+    .price {
+        font-size: 1.5em;
+        color: black;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    button {
+        width: 100%;
+        padding: 15px;
+        background-color: black;
+        color: white;
+        font-size: 1.2em;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-top: 20px;
+    }
+
+    button:hover {
+        background-color: black;
+    }
+
+    .divider {
+        margin: 20px 0;
+        border-top: 1px solid #eee;
+    }
+
+    .message {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 1em;
+        color: #888;
+    }
+
+    .message a {
+        color: black;
+        text-decoration: none;
+        font-weight: bold;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="payment-container">
+    <h2>Confirm Payment</h2>
+
+    <div class="car-info">
+        <p><strong>Car:</strong> {{ car.make }} {{ car.model }} ({{ car.year }})</p>
+        <p><strong>Price per Hour:</strong> ₹{{ car.price_per_hour }}</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="price">
+        ₹{{ car.price_per_hour }}
+    </div>
+
+    <form method="post" action="">
+        {% csrf_token %}
+        <button type="submit">Pay Now</button>
+    </form>
+
+    <div class="message">
+        <p>If you have any issues, please <a href="{% url 'error' %}">Contact Support</a></p>
+    </div>
+</div>
+{%endblock%}

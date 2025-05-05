@@ -1,0 +1,159 @@
+{% extends 'main/main.html' %}
+{% block title %}Hyundai i20{% endblock %}
+{% block style %}
+<style>
+    .container {
+        width: 80%;
+        margin: auto;
+        padding: 20px;
+    }
+
+    .main-image {
+        margin-bottom: 20px;
+    }
+
+    .main-image img {
+        width: 100%;
+        height: auto;
+        max-height: 500px;
+        object-fit: cover;
+        border-radius: 15px;
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .gallery img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .car-name {
+        width: 80%;
+        margin: 20px auto 0 auto;
+        
+    }
+
+    .details-bg {
+    background-color: white;
+    padding: 40px 0;
+}
+
+.details {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.card-wrap {
+    flex: 1 1 300px;
+    padding: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    background-color: #10182F;
+    
+}
+
+
+.card {
+    background-color: white;
+    padding: 24px;
+    border-radius: 10px;
+    box-shadow: none;
+    border: none;
+}
+
+    .btn-primary{
+        padding-left: 1.2rem;
+        padding-right:1.2rem;
+        background-color: black;
+        border: none;
+    }
+    .list-disc {
+        list-style-type: disc;
+        padding-left: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+        .details {
+            flex-direction: column;
+        }
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="main-image">
+        <img src="https://www.siddeshwaratravels.in/car_images/3.jpg" alt="Front View">
+    </div>
+
+    <div class="gallery">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd9PgVKiXwn5wo5E8F21NmudF6ZW-A6-NtShmANXqNudHevjRerET6_IUjl0w8vRU0Ukw&usqp=CAU" alt="Side View">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6u6-zv2huWr07tCBK0p3HE8rM-bi0_xOmmc4RrcsymHhQVKxQmlr7KNu0pqOVx3-xog8&usqp=CAU" alt="Rear View">
+        <img src="https://www.carandbike.com/_next/image?url=https%3A%2F%2Fmedia.mahindrafirstchoice.com%2Flive_web_images%2Fusedcarsimg%2Fmfc%2F2886%2F586656%2Fleft_side_view-20230923124225.jpg&w=3840&q=50" alt="Interior">
+        <img src="https://www.patratravels.com/wp-content/uploads/2017/09/honda-city.jpg" alt="Another View">
+    </div>
+</div>
+
+<div class="car-name">
+    <div class="text-sm text-gray-500">Hosted by Rajesh</div>
+    <h2 class="text-2xl font-bold">Honda City V 2023</h2>
+    <div class="text-gray-600">Automatic • Petrol • 5 Seats</div>
+    <div class="flex items-center text-green-600 text-lg font-semibold mt-2">
+        ★ 4.00 <span class="text-gray-500 text-sm ml-2">(20 Reviews)</span>  
+    </div>
+    <br>
+    <a href="{% url 'book_car' 4 %}" class="btn btn-primary">Book Now</a>
+</div>
+
+
+<div class="details-bg">
+    <div class="details">
+      <!-- Pricing Card -->
+      <div class="card-wrap">
+        <div class="card">
+          <div class="text-sm text-gray-600">
+            Security Fee
+          </div>
+          <div class="text-right font-semibold">₹450</div>
+          <br>
+          <div class="flex justify-between text-lg font-bold">
+            <span> Price</span>
+            <span>₹500/hr</span>
+          </div>
+          <div class="text-sm text-gray-500 mt-1">Inclusive of taxes</div>
+        </div>
+      </div>
+
+       
+  
+      <!-- Features Card -->
+      <div class="card-wrap">
+        <div class="card">
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Features</h3>
+          <ul class="list-disc text-gray-600 space-y-1">
+            <li>7-inch driver's display</li>
+            <li>Android Auto/Apple CarPlay</li>
+            <li>Rear Parking Sensors</li>
+            <li>Automatic Climate Control</li>
+            <li>Leather Upholstery</li>
+            <li>LED Headlamps</li>
+            <li>Skyroof</li>
+            <li>ABS with EBD</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+</div>
+
+{%endblock%}

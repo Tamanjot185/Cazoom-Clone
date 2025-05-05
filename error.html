@@ -1,0 +1,103 @@
+{% extends 'main/main.html' %}
+
+{% block style %}
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f7f7f7;
+        margin: 0;
+        padding: 0;
+    }
+
+
+    .contact-container {
+        width: 100%;
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        font-size: 2.5em;
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px;
+    }
+
+    
+    .info-section {
+        background-color: #fafafa;
+        border: 1px solid #e0e0e0;
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+    }
+
+    .error-message {
+        color: #e74c3c;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .success-message {
+        color: #2ecc71;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    /* Footer message */
+    .footer-message {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 1em;
+        color: #888;
+    }
+
+    .footer-message a {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="contact-container">
+    <h2>Contact Support</h2>
+
+    <div class="info-section">
+        <p>If you have encountered any issues or have questions about our service, please follow the instructions below:</p>
+        <ul>
+            <li><strong>Issue Description:</strong> Be as specific as possible when describing the issue you are facing. Include any error messages or unexpected behavior.</li>
+            <li><strong>Booking Details:</strong> If your query relates to a booking, mention the car model, booking reference, and the time of booking.</li>
+            <li><strong>Contact Information:</strong> Make sure to provide your contact details so we can reach you promptly. We typically respond within 24 hours.</li>
+        </ul>
+    </div>
+
+    {% if messages %}
+        <div class="info-section">
+            {% for message in messages %}
+                <div class="{% if message.tags == 'error' %}error-message{% else %}success-message{% endif %}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <div class="info-section">
+        <h3>Common Issues and How to Resolve Them:</h3>
+        <ul>
+            <li><strong>Booking not found:</strong> If you're unable to see your booking, double-check that you used the correct email and booking details. If the issue persists, please reach out to support with your reference number.</li>
+            <li><strong>Payment Issues:</strong> If you've encountered an issue during payment, make sure your payment method is valid and has sufficient funds. If it still doesn’t work, contact support for further assistance.</li>
+            <li><strong>Technical Errors:</strong> In case of a technical problem on the website (e.g., missing car details or booking errors), please provide a detailed description of the error, including any screenshots or error codes if available.</li>
+        </ul>
+    </div>
+
+    <div class="footer-message">
+        <p>For immediate assistance, please contact us via email: <a href="mailto:support@carzoom.com">support@carzoom.com</a></p>
+    </div>
+</div>
+{%endblock%}
